@@ -15,4 +15,4 @@ ENV PORT=3000
 
 EXPOSE $PORT
 
-CMD serve -s build -l $PORT
+CMD serve -s build -l $PORT
