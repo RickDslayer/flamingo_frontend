@@ -5,7 +5,7 @@ import styles from "./AdminDashboard.module.css";
 
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("travels");
-
+//comentario xd
   return (
     <div className={styles.background}>
     <div className={styles.dashboardContainer}>
