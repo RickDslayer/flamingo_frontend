@@ -1,0 +1,69 @@
+/* Background styles */
+.background {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #C0EBA6, #FFFBE6);
+    padding: 40px 20px 700px; /* Ajusté el padding para una mejor apariencia */
+    align-items: center;
+}
+
+/* Dashboard Container */
+.dashboardContainer {
+    padding: 30px; /* Espaciado adicional para un diseño más espacioso */
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Mantener el fondo blanco para contraste */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+/* Title styles */
+.dashboardTitle {
+    text-align: center;
+    color: #2e2e2e; /* Color más oscuro para un mejor contraste */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600; /* Añadido un peso de fuente más pesado */
+}
+
+/* Button Container */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre botones */
+    margin-bottom: 40px; /* Espaciado adicional */
+}
+
+/* Button styles */
+.button {
+    padding: 12px 24px; /* Aumenté el padding horizontal para botones más grandes */
+    background-color: #007bff; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500; /* Peso de fuente más ligero */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para los botones */
+}
+
+/* Button hover effect */
+.button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de desplazamiento */
+}
+
+/* Active button style */
+.activeButton {
+    background-color: #0056b3;
+    font-weight: bold;
+}
+
+/* Section Container */
+.sectionContainer {
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}

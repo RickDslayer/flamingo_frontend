@@ -1,0 +1,80 @@
+.botonAdd {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+  }
+  
+  .botonAdd:hover {
+    background-color: #218838;
+  }
+  
+  .botonBorrar {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .botonBorrar:hover {
+    background-color: #c82333;
+  }
+  
+  .botonEditar {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .botonEditar:hover {
+    background-color: #0056b3;
+  }
+  
+  .botonReset {
+    padding: 10px 15px;
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 5px;
+  
+
+  }
+  
+  .botonReset:hover {
+    background-color: #e0a800;
+
+  }
+  
+  .Rutas {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .travelItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+  }
+  
+  .detallesRuta {
+    flex-grow: 1;
+  }

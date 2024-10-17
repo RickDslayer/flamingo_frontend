@@ -1,0 +1,85 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #C0EBA6, #FFFBE6);
+    padding: 20px 20px 700px;
+    align-items: center;
+  }
+
+h2 {
+    text-align: center; 
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  td {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+      font-size: 12px;
+    }
+  
+    th, td {
+      padding: 8px;
+    }
+  }
+
+  .buyButton {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buyButton:hover {
+    background-color: #45a049;
+  }
+  
+  .buyButton:active {
+    background-color: #3e8e41;
+  }
