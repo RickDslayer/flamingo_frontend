@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TravelManagement.module.css";
 
 const TravelManagement = () => {
-  const [travels, setTravels] = useState([
-    {
-      id: 1,
-      codigo: "BUS001",
-      horaSalida: "08:00 AM",
-      origen: "Cúcuta",
-      destino: "Bucaramanga",
-      duracion: "5h",
-      bus: "123",
-      terminal: "Terminal Cúcuta",
-    },
-  ]);
+  const [travels, setTravels] = useState(() => {
+    const savedTravels = localStorage.getItem("travels");
+    return savedTravels ? JSON.parse(savedTravels) : [
+      {
+        id: 1,
+        codigo: "BUS001",
+        horaSalida: "08:00 AM",
+        origen: "Cúcuta",
+        destino: "Bucaramanga",
+        duracion: "5h",
+        bus: "123",
+        terminal: "Terminal Cúcuta",
+      },
+    ];
+  });
 
   const [newTravel, setNewTravel] = useState({
     id: null,
@@ -25,6 +28,10 @@ const TravelManagement = () => {
     bus: "",
     terminal: "",
   });
+
+  useEffect(() => {
+    localStorage.setItem("travels", JSON.stringify(travels));
+  }, [travels]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +48,7 @@ const TravelManagement = () => {
       );
     } else {
       // Add new travel
-      setTravels([...travels, { ...newTravel, id: travels.length + 1 }]);
+      setTravels([...travels, { ...newTravel, id: Date.now() }]);
     }
     resetForm();
   };

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import styles from "./UserManagement.module.css"; 
+import React, { useState, useEffect } from "react";
+import styles from "./UserManagement.module.css";
 
 const UserManagement = () => {
-  const [users, setUsers] = useState([
-    { id: 1, nombre: "Juan Pérez", correo: "juan@example.com", direccion: "123 Calle Falsa", telefono: "555-5555" },
-  ]);
+  const [users, setUsers] = useState(() => {
+    const savedUsers = localStorage.getItem("users");
+    return savedUsers ? JSON.parse(savedUsers) : [
+      { id: 1, nombre: "Juan Pérez", correo: "juan@example.com", direccion: "123 Calle Falsa", telefono: "555-5555" },
+    ];
+  });
 
   const [newUser, setNewUser] = useState({
     nombre: "",
@@ -15,6 +18,10 @@ const UserManagement = () => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [currentUserId, setCurrentUserId] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +34,7 @@ const UserManagement = () => {
       setIsEditing(false);
       setCurrentUserId(null);
     } else {
-      setUsers([...users, { ...newUser, id: users.length + 1 }]);
+      setUsers([...users, { ...newUser, id: Date.now() }]);
     }
     setNewUser({ nombre: "", correo: "", direccion: "", telefono: "" });
   };

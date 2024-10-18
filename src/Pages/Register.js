@@ -29,27 +29,21 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          documentType,
-          documentNumber,
-          name,
-          email,
-          password,
-          address,
-          postalCode,
-          phone: `${phoneCode}${phoneNumber}`
-        })
-      });
+      // Simulación del registro exitoso y almacenamiento de usuario
+      const newUser = {
+        id: Date.now(),
+        nombre: name,
+        correo: email,
+        direccion: address,
+        telefono: `${phoneCode}${phoneNumber}`
+      };
 
-      const data = await response.json();
-      if (data.success) {
-        navigate('/login'); 
-      } else {
-        alert('Error en el registro: ' + data.message);
-      }
+      const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+      savedUsers.push(newUser);
+      localStorage.setItem("users", JSON.stringify(savedUsers));
+
+      alert('Registro exitoso!');
+      navigate('/busroutes');
     } catch (error) {
       console.error('Error en el registro:', error);
     }
@@ -57,7 +51,12 @@ const Register = () => {
 
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     console.log(credentialResponse);
-    navigate('/login'); 
+    try {
+      // Simulando el registro y luego autenticación con Google
+      navigate('/busroutes');
+    } catch (error) {
+      console.error('Error al registrar con Google:', error);
+    }
   };
 
   const handleGoogleLoginError = () => {
@@ -72,7 +71,6 @@ const Register = () => {
           <div className={styles.underline}></div>
           <form onSubmit={handleSubmit}>
             <div className={styles.inputs}>
-              
               {/* Tipo de Documento */}
               <div className={styles.input}>
                 <label>Tipo de Documento:</label>
@@ -143,7 +141,7 @@ const Register = () => {
                 <input
                   type="password"
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)} // Actualiza el estado de confirmPassword
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
               </div>
@@ -201,8 +199,8 @@ const Register = () => {
           
           {/* Botón de login con Google */}
           <GoogleLogin
-            onSuccess={handleGoogleLoginSuccess}  // Callback en éxito
-            onError={handleGoogleLoginError}  // Callback en error
+            onSuccess={handleGoogleLoginSuccess}
+            onError={handleGoogleLoginError}
           />
         </div>
       </div>
@@ -211,4 +209,6 @@ const Register = () => {
 };
 
 export default Register;
+
+
 

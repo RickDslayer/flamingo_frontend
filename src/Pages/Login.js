@@ -12,17 +12,13 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/logeo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
-      if (data.success) {
+      // Simular el inicio de sesión con datos estáticos
+      if (email === "user@example.com" && password === "user123") {
         navigate('/busroutes');
+      } else if (email === "admin@example.com" && password === "admin123") {
+        navigate('/admin');
       } else {
-        alert('Login failed: ' + data.message);
+        alert('Login failed: Invalid credentials');
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -32,18 +28,8 @@ const Login = () => {
   const handleGoogleLoginSuccess = async (credentialResponse) => {
     console.log(credentialResponse);
     try {
-      const response = await fetch('/logeo/google', {  // Ajustar el endpoint al backend
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token: credentialResponse.credential }) 
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        navigate('/busroutes'); 
-      } else {
-        alert('Google login failed: ' + data.message);
-      }
+      // Simular el inicio de sesión con Google
+      navigate('/busroutes');
     } catch (error) {
       console.error('Error logging in with Google:', error);
     }
@@ -101,6 +87,8 @@ const Login = () => {
 };
 
 export default Login;
+
+
 
 
 

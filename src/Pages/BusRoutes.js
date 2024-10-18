@@ -2,31 +2,14 @@ import React, { useState, useEffect } from "react";
 import styles from "./BusRoutes.module.css";
 
 const BusRoutes = () => {
-  const [busRoutes, setBusRoutes] = useState([
-    {
-      id: 1,
-      codigo: "BUS001",
-      horaSalida: "08:00 AM",
-      origen: "Cúcuta",
-      destino: "Bucaramanga",
-      duracion: "5h",
-      numeroBus: "123",
-      terminal: "Terminal Cúcuta",
-    },
-    {
-      id: 2,
-      codigo: "BUS002",
-      horaSalida: "09:30 AM",
-      origen: "Cúcuta",
-      destino: "Bogotá",
-      duracion: "12h",
-      numeroBus: "456",
-      terminal: "Terminal Cúcuta",
-    },
-  ]);
+  const [busRoutes, setBusRoutes] = useState([]);
 
   useEffect(() => {
-    // Aquí podrías realizar una llamada a un endpoint en el futuro para obtener las rutas de buses.
+    // Obtener las rutas de viajes desde localStorage
+    const savedTravels = localStorage.getItem("travels");
+    if (savedTravels) {
+      setBusRoutes(JSON.parse(savedTravels));
+    }
   }, []);
 
   const handleBuyClick = (routeId) => {
@@ -58,7 +41,7 @@ const BusRoutes = () => {
               <td className={styles.td}>{route.origen}</td>
               <td className={styles.td}>{route.destino}</td>
               <td className={styles.td}>{route.duracion}</td>
-              <td className={styles.td}>{route.numeroBus}</td>
+              <td className={styles.td}>{route.bus}</td>
               <td className={styles.td}>{route.terminal}</td>
               <td className={styles.td}>
                 <button
