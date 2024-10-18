@@ -1,0 +1,18 @@
+FROM node:20.15.0
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+RUN npm install -g serve
+
+ENV PORT=3000
+
+EXPOSE $PORT
+
+CMD serve -s build -l $PORT
